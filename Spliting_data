@@ -1,0 +1,31 @@
+#SPLIT DATA SET FOR SUPERVISED LEARNING ALGORITHM AS TRAIN DATASET AND TEST DATA
+#1st INPUT FEATURES:SPLIT ALL THE ROWS AND COLUMNS EXCEPT LAST COLUMN
+#TARGET COLUMN AS ALL THE ROWS AND LAST COLUMNS
+from numpy import array
+from numpy.ma.extras import vstack
+
+data=array([[1,2,3,4,5],
+            [6,7,8,9,0],
+            [11,12,13,14,15],
+            [16,17,18,19,20],
+            [21,22,23,24,25]])
+split=3
+print(data[0:5,0:5])
+print("\nSPLIT ALL THE ROWS AND COLUMNS EXCEPT LAST COLUMN\n",data[0:5,0:4])
+print("\nSPLIT ALL THE ROWS AND COLUMNS EXCEPT LAST COLUMN\n",data[:,:-1])
+
+
+print("\nTARGET COLUMN AS ALL THE ROWS AND LAST COLUMNS\n")
+vdata=data[:,-1]
+print(vstack(vdata))
+print("\nTARGET COLUMN AS ALL THE ROWS AND LAST COLUMNS\n",data[0:5,4:5])
+
+#split as train data sample and test data sample #SPLIT=3
+#TRAIN DATA:split data as all the rows from the beginning to the split point
+train_data=data[0:split,:]
+print("\nTRAIN DATA\n",train_data)
+
+
+#TEST DATA:all the rows starting from the split point to the end of the dimension
+test_data=data[split:5,]
+print("\nTest data\n",test_data)
