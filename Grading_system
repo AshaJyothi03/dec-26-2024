@@ -1,0 +1,25 @@
+'''
+A:score>=90
+B:score>=80 and score<90
+C: score>=70 and score<80
+D:score>=60 and score<70
+F:score<60
+'''
+
+class grading_system:
+    def __init__(self,score):
+        self.score=score
+        if score>=90:
+            print("A grade")
+        elif (score>=80 and score<90):
+            print("B grade")
+        elif (score>=70 and score<80):
+            print("C grade")
+        elif (score>=60 and score<70):
+            print("D grade")
+        else:
+            print("F grade")
+ob=grading_system(95)
+
+
+
