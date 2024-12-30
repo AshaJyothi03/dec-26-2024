@@ -10,33 +10,37 @@ from tkinter import *
 from tkinter import messagebox
 window=Tk()
 window.title("Grading System")
-window.config(bg="purple")
+window.config(bg="#90ee90")
 window.geometry("500x450")
 def bank_loan():
     age=float(e1.get())
     salary=float(e2.get())
     credit=int(e3.get())
     if age >= 21 and age<60:
-        if (salary>=40,000):
+        if (salary>=40000):
             if (credit>=650):
                 messagebox.showinfo("STATUS","U R ELIGIBLE FOR A BANK LOAN ")
+            else:
+                messagebox.showinfo("STATUS", "U R NOT ELIGIBLE")
+        else:
+            messagebox.showinfo("STATUS", "U R NOT ELIGIBLE")
 
     else:
-        messagebox.showinfo("STATUS","NOT ELIGIBLE")
-l1=Label(window,text="Age:", font=40)
+        messagebox.showinfo("STATUS","U R NOT ELIGIBLE")
+l1=Label(window,text="AGE:", font=30)
 l1.grid(row=0,column=0)
 e1=Entry(window)
 e1.grid(row=0,column=1)
 
-l2=Label(window,text="salary:", font=40)
+l2=Label(window,text="SALARY:", font=30)
 l2.grid(row=1,column=0)
 e2=Entry(window)
 e2.grid(row=1,column=1)
 
-l3=Label(window,text="credit:", font=40)
+l3=Label(window,text="CREDIT:", font=30)
 l3.grid(row=2,column=0)
 e3=Entry(window)
 e3.grid(row=2,column=1)
-button=Button(window,text="submit",command=bank_loan)
+button=Button(window,text="SUBMIT",command=bank_loan)
 button.grid(row=6,column=5)
 window.mainloop()
