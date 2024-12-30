@@ -1,0 +1,60 @@
+print(0.2 == 2 * 0.1)
+print(0.3 == 3 * 0.1)
+print(0.4 == 4 * 0.1)
+print(0.5 == 5 * 0.1)
+
+'''
+outputs:
+------
+True
+False
+True
+True
+'''
+
+'''
+0.2 == 2 * 0.1: This is True.
+
+0.2 and 2 * 0.1 are both exactly representable in the binary floating-point system without rounding errors. Therefore, Python evaluates this as True.
+
+0.3 == 3 * 0.1: This is False.
+While mathematically 0.3 is equal to 3 * 0.1, in floating-point representation, there is a small rounding error. The result of 3 * 0.1 is actually 0.30000000000000004, and 0.3 is represented as 0.29999999999999993 in binary, which makes the comparison False.
+
+0.4 == 4 * 0.1: This is True.
+0.4 and 4 * 0.1 are both exactly representable in binary without rounding errors. Therefore, Python evaluates this as True.
+
+0.5 == 5 * 0.1: This is True.
+Similarly to 0.4, 0.5 and 5 * 0.1 are both exactly representable in binary, so the comparison is True.
+
+
+Summary:
+Exact representations: 0.2, 0.4, and 0.5 are exactly representable in binary floating-point, 
+so comparisons involving them are True. Rounding errors: 0.3 and 3 * 0.1 both suffer from small 
+rounding errors when represented in binary, so the comparison is False.
+'''
+
+import numpy as np
+
+print(np.nan == np.nan)   #o/p: False
+
+'''
+In Python, when you use NumPy's np.nan (Not a Number), the comparison np.nan == np.nan will return False.
+
+This is because np.nan is a special floating-point value that is used to represent undefined or missing values.
+According to the IEEE 754 floating-point standard, NaN is not equal to any number, including itself. 
+This means that np.nan is considered "not equal" to np.nan.
+'''
+
+'''
+Why this happens:
+NaN as an undefined value: np.nan represents an undefined or unrepresentable value. 
+The concept of "equality" doesn't apply to NaN values in the usual sense because they are meant to 
+signify an indeterminate or missing value, rather than a number with a specific value.
+
+If you need to check if two values are both NaN, you can use np.isnan():
+'''
+
+print(np.isnan(np.nan))  # Output: True
+print(np.isnan(np.nan) == np.isnan(np.nan))  # Output: True
+
+#This way, you can reliably check if a value is NaN without relying on equality comparisons.
